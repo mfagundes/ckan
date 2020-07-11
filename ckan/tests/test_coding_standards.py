@@ -105,6 +105,10 @@ def test_building_the_docs():
         u"WARNING: duplicate label ckan.auth.roles_that_cascade_to_sub_groups",
         u"WARNING: duplicate label ckan.auth.public_user_details",
         u"WARNING: duplicate label ckan.auth.public_activity_stream_detail",
+        u"WARNING: duplicate label ckan.auth.allow_dataset_collaborators",
+        u"WARNING: duplicate label ckan.auth.allow_admin_collaborators",
+        u"WARNING: duplicate label ckan.auth.allow_collaborators_to_change_owner_org",
+        u"WARNING: duplicate label ckan.auth.create_default_api_keys",
     ]
 
     # Remove the allowed warnings from the list of collected warnings.
@@ -247,6 +251,7 @@ _STRING_LITERALS_WHITELIST = [
     u"bin/running_stats.py",
     u"ckan/__init__.py",
     u"ckan/authz.py",
+    u"ckan/cli/translation.py",
     u"ckan/config/environment.py",
     u"ckan/config/install.py",
     u"ckan/config/middleware/__init__.py",
@@ -542,7 +547,6 @@ _STRING_LITERALS_WHITELIST = [
     u"ckan/tests/lib/test_app_globals.py",
     u"ckan/tests/lib/test_auth_tkt.py",
     u"ckan/tests/lib/test_base.py",
-    u"ckan/tests/lib/test_cli.py",
     u"ckan/tests/lib/test_config_tool.py",
     u"ckan/tests/lib/test_datapreview.py",
     u"ckan/tests/lib/test_helpers.py",

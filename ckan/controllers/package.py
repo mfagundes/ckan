@@ -7,8 +7,7 @@ import datetime
 import mimetypes
 import cgi
 
-from ckan.common import config
-from ckan.common import asbool
+from collections import OrderedDict
 import paste.fileapp
 from six import string_types, text_type
 
@@ -25,7 +24,7 @@ import ckan.lib.uploader as uploader
 import ckan.plugins as p
 import ckan.lib.render
 
-from ckan.common import OrderedDict, _, json, request, c, response
+from ckan.common import config, asbool, _, json, request, c, response
 from ckan.controllers.home import CACHE_PARAMETERS
 
 log = logging.getLogger(__name__)
@@ -253,9 +252,19 @@ class PackageController(base.BaseController):
 
             facets = OrderedDict()
 
+            org_label = h.humanize_entity_type(
+                u'organization',
+                h.default_group_type(u'organization'),
+                u'facet label') or _(u'Organizations')
+
+            group_label = h.humanize_entity_type(
+                u'group',
+                h.default_group_type(u'group'),
+                u'facet label') or _(u'Groups')
+
             default_facet_titles = {
-                'organization': _('Organizations'),
-                'groups': _('Groups'),
+                'organization': org_label,
+                'groups': group_label,
                 'tags': _('Tags'),
                 'res_format': _('Formats'),
                 'license_id': _('Licenses'),
