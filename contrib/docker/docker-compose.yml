@@ -58,12 +58,16 @@ services:
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
     volumes:
       - pg_data:/var/lib/postgresql/data
+    ports:
+    - "5432: 5432"
 
   solr:
     container_name: solr
     build:
       context: ../../
       dockerfile: contrib/docker/solr/Dockerfile
+    ports:
+    - "8983:8983"
 
 
   redis:
